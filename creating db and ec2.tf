@@ -7,7 +7,7 @@ resource "aws_instance" "proj2" {
   instance_type = "t2.micro"
   subnet_id   = "subnet-010656811f3381d92"
   key_name = "Naveen06training"
-  user_data = templatefile("${path.module}/userdata.tftpl", {endpoint = aws_db_instance.default.endpoint,password = aws_db_instance.default.password})
+  user_data = templatefile("${path.module}/userdata.tftpl", {endpoint = aws_db_instance.default.endpoint,password = aws_db_instance.default.address})
    iam_instance_profile = "demo-Role"
   security_groups = ["sg-0b947349537e69ed2"]
   tags = {
